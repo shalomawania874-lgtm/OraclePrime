@@ -1,0 +1,2 @@
+export interface CopilotAnswer{answer:string;confidence:number;citations:string[];actions:string[];}
+export function answer(question:string):CopilotAnswer{return{answer:`Oracle Prime analysis request received: ${question}`,confidence:.5,citations:[],actions:[]};}
