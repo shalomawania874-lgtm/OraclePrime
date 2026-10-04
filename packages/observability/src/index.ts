@@ -1,0 +1,2 @@
+export interface Metric{name:string;value:number;labels?:Record<string,string>;ts:number;}
+export class Metrics{private data:Metric[]=[];observe(name:string,value:number,labels?:Record<string,string>){this.data.push({name,value,labels,ts:Date.now()});}snapshot(){return [...this.data];}}

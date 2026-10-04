@@ -1,0 +1,3 @@
+import {describe,it,expect} from 'vitest';import {evaluateRisk} from './index';
+const o={id:'1',tenantId:'t',symbol:'AAPL',venue:'NASDAQ' as const,side:'BUY' as const,type:'LIMIT' as const,quantity:1,limitPrice:10,strategyId:'s',signalId:'g',createdAt:0,idempotencyKey:'x'};
+describe('risk',()=>it('approves safe order',()=>expect(evaluateRisk(o,{equity:100000,cash:100000,grossExposure:0,netExposure:0,dailyPnl:0,drawdown:0,symbolExposure:0,sectorExposure:0,leverage:0,marketDataTs:Date.now(),now:Date.now()}).approved).toBe(true)));
