@@ -1,0 +1,3 @@
+import type {OrderIntent,RiskContext} from '@oracle/contracts';import {evaluateRisk} from '@oracle/risk';
+export interface ExecutionResult{status:'REJECTED'|'ACCEPTED';orderId:string;reasons:string[];}
+export class ExecutionEngine{private seen=new Set<string>();submit(o:OrderIntent,c:RiskContext):ExecutionResult{if(this.seen.has(o.idempotencyKey))return{status:'REJECTED',orderId:o.id,reasons:['DUPLICATE_IDEMPOTENCY_KEY']};const d=evaluateRisk(o,c);if(!d.approved)return{status:'REJECTED',orderId:o.id,reasons:d.reasons};this.seen.add(o.idempotencyKey);return{status:'ACCEPTED',orderId:o.id,reasons:[]};}}

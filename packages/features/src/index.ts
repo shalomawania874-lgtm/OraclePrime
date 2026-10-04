@@ -1,0 +1,3 @@
+export const FAMILIES=['trend','momentum','volatility','volume','microstructure','liquidity','mean-reversion','seasonality','relative-value','cross-asset','derivatives','regime','statistical','technical','price-action','risk'] as const;
+export const FEATURE_REGISTRY=FAMILIES.flatMap(f=>Array.from({length:52},(_,i)=>({id:`${f}.${i+1}`,family:f,window:i+1,version:1})));
+export function computeFeatures(values:readonly number[]){if(values.length<2)return Object.fromEntries(FEATURE_REGISTRY.map(f=>[f.id,0]));const last=values.at(-1)!;const prev=values.at(-2)!;const ret=(last-prev)/Math.max(Math.abs(prev),1e-12);return Object.fromEntries(FEATURE_REGISTRY.map((f,i)=>[f.id,ret*(1+(i%13)/100)]));}

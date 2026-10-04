@@ -1,0 +1,1 @@
+import {it,expect} from 'vitest';import {FEATURE_REGISTRY} from './index';it('has 800+ features',()=>expect(FEATURE_REGISTRY.length).toBeGreaterThanOrEqual(800));

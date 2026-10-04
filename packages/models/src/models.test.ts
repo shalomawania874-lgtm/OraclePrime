@@ -1,0 +1,1 @@
+import {it,expect} from 'vitest';import {MODEL_FAMILIES,predict} from './index';it('has 50+ model families',()=>expect(MODEL_FAMILIES.length).toBeGreaterThanOrEqual(50));it('can abstain',()=>expect(predict({}).abstain).toBe(true));
