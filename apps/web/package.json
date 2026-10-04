@@ -1,0 +1,1 @@
+{"name":"@oracle/web","private":true,"version":"0.1.0","type":"module","scripts":{"build":"next build","typecheck":"next typecheck","test":"vitest run","dev":"next dev"},"dependencies":{"next":"15.1.6","react":"19.0.0","react-dom":"19.0.0"},"devDependencies":{"typescript":"workspace:*","vitest":"workspace:*","@types/react":"19.0.3","@types/react-dom":"19.0.2"}}
