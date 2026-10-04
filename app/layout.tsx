@@ -1,0 +1,1 @@
+export const metadata={title:'Oracle Prime — Autonomous Market Intelligence',description:'Institutional-grade AI market intelligence, risk and execution platform'}; export default function RootLayout({children}:{children:React.ReactNode}){return <html lang="en"><body>{children}</body></html>}
